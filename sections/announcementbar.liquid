@@ -1,0 +1,36 @@
+{%  liquid  
+ assign   show_announcement_bar = section.settings.show_announcement_bar
+ assign   announcement_text = section.settings.announcement_text
+
+
+%}
+
+{% if show_announcement_bar %}
+    <div>{{ announcement_text }}</div>
+{% endif %}
+
+
+{% schema %}
+{
+    "name": "Announcement Bar",
+    "settings": [
+        {
+            "type": "header",
+            "content": "Announcement"
+        },
+        {
+            "type": "checkbox",
+            "id": "show_announcement_bar",
+            "label": "Enable Announcement Bar",
+            "default": true
+        },
+        {
+            "type": "text",
+            "id": "announcement_text",
+            "label": "Announcement Text",
+            "info": "Enter your announcement text here",
+            "default": "Welcome to our shop || Get 10% discount on your first order"
+        }
+    ]
+}
+{% endschema %}
